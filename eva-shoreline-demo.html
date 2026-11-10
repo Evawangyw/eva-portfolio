@@ -657,9 +657,24 @@ const greReviewTitle = {
  en: 'One Month of GRE Prep: Lessons Learned',
  zh: 'GRE 备考复盘：我的一个月'
 };
+const istanbulTitle = {
+ en: 'Istanbul Beyond the Photographs',
+ zh: '伊斯坦布尔，在黑白照片之外'
+};
+const noteArticles = {
+ 'gre-review': renderGreReview,
+ istanbul: renderIstanbul
+};
+function renderNoteEntry(key, number, kind, title, summary){
+ return `<div class="project-list"><button data-open="${key}"><span class="index-number" aria-hidden="true">${number}</span><span class="project-summary"><span class="project-kind">${kind}</span><strong>${title}</strong><small>${summary}</small></span><span class="project-arrow" aria-hidden="true">↗</span></button></div>`;
+}
 function renderNotes(){
  return `<p class="story-eyebrow">${choose('A SPACE FOR THOUGHT','留给思考的空间')}</p><h2 id="story-title">${choose('Research &amp; Notes','研究与笔记')}</h2>
- <div class="project-list"><button data-open="gre-review"><span class="index-number" aria-hidden="true">01</span><span class="project-summary"><span class="project-kind">${choose('Study Notes','备考笔记')}</span><strong>${greReviewTitle[lang]}</strong><small>${choose('How I fit practice questions, mock tests, and vocabulary review into one or two hours a day.','每天只有一两个小时，我是怎么安排刷题、模考和词汇复习的？')}</small></span><span class="project-arrow" aria-hidden="true">↗</span></button></div>`;
+ ${renderNoteEntry('gre-review', '01', choose('Study Notes','备考笔记'), greReviewTitle[lang], choose('How I fit practice questions, mock tests, and vocabulary review into one or two hours a day.','每天只有一两个小时，我是怎么安排刷题、模考和词汇复习的？'))}
+ <section aria-labelledby="travel-notes-heading">
+ <h3 id="travel-notes-heading">${choose('Travel Notes','旅行笔记')}</h3>
+ ${renderNoteEntry('istanbul', '02', choose('Istanbul, Türkiye','土耳其 · 伊斯坦布尔'), istanbulTitle[lang], choose('From Pamuk’s black-and-white photographs to an afternoon of music on İstiklal Avenue.','从帕慕克的黑白照片，到独立大街乐器店里的两个小时。'))}
+ </section>`;
 }
 function renderGreReview(){
  if(lang==='en')return `<button class="projects-back" data-open="notes">← Back to Notes</button>
@@ -688,6 +703,24 @@ function renderGreReview(){
  <p>对于较为“刁钻”的阅读题，我个人的经验就是先找到文章的大意，尤其是 subject 和主要论点，接下来再去重点关注题目的 subject，最后才是回到文章去找信息、做推断。对于逻辑题，我推荐大家画出逻辑链条，把前提和结论具体是什么搞清楚，也可以过一遍青山学堂的逻辑题视频，讲得非常清晰。</p>
  <p>最后一段想写一下对正在备考的大家的鼓励。刚开始刷题的时候，我也怀着极大的畏难心理，加上每天学习的时间非常有限，所以一直消极地想大不了就再来一次。可是当坚持了十五天左右后，我就发现实际上 GRE 常考的单词和题目思路都是有限的；考前的一天晚上回顾生词时，甚至还有很多“第一次”见到的单词，但这并不影响我在正式考试中获得理想的成绩。所以，我会说比起刷很多题背很多单词，更重要的是去培养自己做题的感觉，考前一天保持充足的睡眠，然后自信地完成考试。</p>`;
 }
+function renderIstanbul(){
+ return `<button class="projects-back" data-open="notes">${choose('← Back to Notes','← 返回笔记')}</button>
+ <p class="story-eyebrow">${choose('Travel Notes','旅行笔记')}</p><h2 id="story-title" tabindex="-1">${istanbulTitle[lang]}</h2>
+ ${choose(
+ `<p>One afternoon in the distant days of online classes, I opened what looked like a book of photographs. It read more like an ethnography. Hundreds of old photographs traced how the wave of modernization in the early twentieth century reshaped this thousand-year-old city and the lives of the many communities that called it home. What stayed with me were the crumbling walls that seemed to be everywhere. In black and white, the buildings that had held so much laughter and so many tears stood in silence, their edges still sharp even as they gave way under the weight of history. The Turkish people, suddenly faced with a new world order, seemed unsure how to find their footing. And yet the author wrote, “Why can’t we leave this place? Because I can’t imagine what life would be like if I didn’t live in Istanbul.” From then on, Istanbul, or Constantinople, was more than a name in a history book. It was a place I longed to visit, touched by mystery and melancholy.</p>
+ <p>The Istanbul I saw was different from the city of a century ago I had imagined through Pamuk’s writing. On the European side, colorful apartment buildings lined the cobbled lanes, with flowers spilling from the windows. On the Asian side, I caught more glimpses of local life. Fewer people were calling out to customers, and even the seagulls seemed to take their time. On İstiklal Avenue, the souvenir shops and chain stores were what caught my eye, much like those in any tourist district. Still, there was a beauty here that went beyond the buildings and the times that had shaped them.</p>
+ <p>I felt the warmth of the city from the first day, when someone pressed a transit card into our hands as we stood hesitating in front of a metro ticket machine. When the power went out in our apartment in the old city on the European side, our host waited by the door until nearly midnight for us to come back. He went looking for flashlights and candles and stayed until the power came back on.</p>
+ <p>On our last afternoon, we were wandering down bustling İstiklal Avenue when we stepped into a music shop. The owner was teaching a Chinese woman to play a hand drum. When he saw us, he picked up a traditional Turkish instrument and joined her in an impromptu duet. We burst into applause. He served us tea and invited us to play along. We lost track of time and forgot the world outside. Two hours went by as we tried the handpan, hand drum, guitar, and ukulele. We had no language in common, yet through music we could understand each other.</p>
+ <p>Outside, we passed more little music shops, their narrow, dim interiors hung with instruments from around the world. I imagined that each one had an owner who loved music just as fiercely. An instrument is lucky to end up where it belongs. For a shop to hold on to its place on İstiklal Avenue takes the persistence of the person behind the counter.</p>
+ <p>As a visitor, I caught only glimpses of what it is like to live in Istanbul. Like anywhere else, life here has its share of disappointments. Even so, I want to believe the city will be kind to those who meet it with gratitude, and that its kind, resilient people will write the next chapter of its history.</p>`,
+ `<p>在遥远的网课时代，某天下午，我翻开了一本摄影集，或者准确来说是一本民族志。它用数百张老照片记录了二十世纪初期现代化浪潮冲击下，伊斯坦布尔这座千年城市的风貌，以及其中各种族居民的生活。印象最深的是照片里随处可见的断井残垣。在黑白照里，曾经承载着那么多欢笑和眼泪的建筑物们，只是默默地棱角分明，被历史压得不堪重负而土崩瓦解，而刚刚面对新世界秩序的土耳其人，则茫然而无所适从。然而，作者总结道：“为什么我们不能够离开此地？那是因为我无法想象，不生活在伊斯坦布尔，会是什么模样。”从那时候开始，伊斯坦布尔或君士坦丁堡对我而言就不再只是一个历史书上的名词，而是一个带着几分神秘、几分哀愁的向往之地。</p>
+ <p>今天我见到的伊斯坦布尔已经和帕慕克笔下百年前的城市不尽相同。欧洲区的石板路小巷两边是五彩斑斓的公寓，花团锦簇缀满窗户，而亚洲区则有着更多本地人的生活气息，少有人忙着招揽顾客，海鸥也开始闲庭信步。独立大街两侧最显眼的，是和其他城市和景区别无二致的纪念品店和连锁品牌。可是我依然觉得这座城市有它独特的美，这种美丽超越了它的建筑与所处的时代。</p>
+ <p>从第一天在地铁站自动售票机前徘徊时被塞来一张交通卡开始，我们就感受到了这座城市的温暖。欧洲老城区的公寓停电时，房东将近凌晨还一直站在门口等着我们回来，并为我们四处寻找可以照明的手电和蜡烛，一直等到电力恢复后才安心离去。</p>
+ <p>最后一天下午，我们在熙熙攘攘的独立大街闲逛，走进一家乐器店，正好看到老板在教授一位中国姐姐手鼓，看到我们来了，老板拿起手中的土耳其传统乐器，为我们即兴合奏一曲，在我们鼓掌惊叹之后，他用茶水款待我们，让我们也来一起玩音乐。于是我们在这里忘记了时间也忘记了外面的世界，不知不觉地度过了两个小时，尝试了各种各样不同的乐器，手碟、手鼓、吉他、尤克里里。哪怕语言不通，音乐的力量让我们可以感受到彼此的心灵相通。</p>
+ <p>走出这家小店，又看见许多小乐器店，窄小而昏暗的门面里琳琅满目地挂着各国乐器，我想，它们一定也有一个坚定地爱着音乐的主人。适得其所是作为乐器的幸福，在独立大街上有一席之地则离不开店主的坚持。</p>
+ <p>作为游客我无从窥见伊斯坦布尔居民生活的全貌，也知道和任何其他城市的居民一样，生活不总是幸福美满，一定有许多不如意的时刻。可是还是愿意相信这座城市会善待心存感恩之心的人们，而这些善良而坚韧的人们，会书写它历史的新篇章。</p>`
+ )}`;
+}
 // Set this to the verified Streamlit Cloud URL after deployment.
 const projectDemoURLs = { stars: 'https://eva-gazing-at-stars.streamlit.app/' };
 function projectActions(key, p) {
@@ -707,7 +740,7 @@ function renderStory(key){
  html=choose(`<p class="story-eyebrow">06 / WANDER · A LITTLE ABOUT ME</p><h2 id="story-title">Hi, I’m Eva.<br>Also, Yiwen.</h2><p class="story-lead">A data science and economics student, collecting questions across places and disciplines.</p><div class="city-line"><span>Shanghai</span><i></i><span>Abu Dhabi</span><i></i><span>New York</span></div><p>I’m an undergraduate at NYU Shanghai, studying Data Science & Economics, with study-away experiences at NYU Abu Dhabi and NYU New York.</p><p>My work moves between statistical research, language models, business analytics, and useful products. I enjoy asking what a model tells us, how we can check it, and what someone can actually do with the result.</p><p>Alongside research and internships, I’ve worked as a Writing & Speaking Learning Assistant and an Academic Peer Advisor. Those experiences keep me interested in how we explain ideas and help others navigate unfamiliar things.</p><p>I’m also developing my eye for design. This little shoreline is a place to bring those interests together.</p>`,`<p class="story-eyebrow">06 / 漫游 · 关于我</p><h2 id="story-title">你好，我是逸文。<br>也可以叫我 Eva。</h2><p class="story-lead">学习数据科学与经济学，也在不同城市和学科之间，收集值得追问的问题。</p><div class="city-line"><span>上海</span><i></i><span>阿布扎比</span><i></i><span>纽约</span></div><p>我在上海纽约大学学习数据科学与经济学，曾在纽约大学阿布扎比分校和纽约校区交流学习。</p><p>我的兴趣从统计研究、语言模型和商业分析，延伸到面向真实用户的产品。我喜欢追问：模型告诉了我们什么？怎样验证它？它能帮助一个人做出什么决定？</p><p>除了研究与实习，我也担任过写作与口语学习助理、学术朋辈导师。这些经历让我持续关注如何解释复杂想法，以及如何帮助别人面对陌生的问题。</p><p>我也正在培养自己的设计能力和审美。这片小海滩，是让这些兴趣相遇的地方。</p>`);
  }else if(key==='projects'){html=`<p class="story-eyebrow">${choose('COLLECTED ALONG THE WAY','沿途收集')}</p><h2 id="story-title">${choose('Projects & research','项目与研究')}</h2><p class="story-lead">${choose('A quick guide to what I build and study. Choose a project to explore its story.','快速了解我做过的项目与正在研究的问题，选择一项即可查看完整介绍。')}</p>${projectIndex()}`;
  }else if(key==='notes'){html=renderNotes();
- }else if(key==='gre-review'){html=renderGreReview();
+ }else if(Object.hasOwn(noteArticles, key)){html=noteArticles[key]();
  }else if(key==='contact'){html=choose(`<p class="story-eyebrow">LET’S CONNECT</p><h2 id="story-title">A conversation<br>could start here.</h2><p class="story-lead">I’d love to exchange ideas about data science, NLP, research, and building useful products.</p><a class="story-link" href="https://github.com/Evawangyw" target="_blank" rel="noopener noreferrer">Find me on GitHub ↗</a><p class="disclosure">This demo currently links to GitHub. An email address and other contact links can be added to the final site.</p>`,`<p class="story-eyebrow">打个招呼</p><h2 id="story-title">一段对话，<br>可以从这里开始。</h2><p class="story-lead">欢迎交流数据科学、自然语言处理、研究，或是一起创造有用的产品。</p><a class="story-link" href="https://github.com/Evawangyw" target="_blank" rel="noopener noreferrer">在 GitHub 找到我 ↗</a><p class="disclosure">这个 demo 暂时提供 GitHub 入口，正式版可以加入邮箱和其他联系方式。</p>`);
  }else if(key==='resume'){html=choose(`<p class="story-eyebrow">EVA WANG / YIWEN</p><h2 id="story-title">Résumé at a glance</h2><p class="story-lead">Data Science & Economics · NYU Shanghai · 2023–2027</p><div class="resume-item"><h3>Research</h3><p>ESG Accountability Analytics · NYU Shanghai<br>Rough Volatility & Financial Time Series · Capstone<br>Sign Language Translation Lab · NYU Abu Dhabi<br>Consumer Decision-Making · Independent Research</p></div><div class="resume-item"><h3>Experience</h3><p>Siemens Healthineers · Business Operations<br>MeetSocial Group · Business Analytics<br>Shanghai SynBio Innovation Center · Industry Research<br>Founder Securities · Industry Research<br>BDO China · Audit</p></div><div class="resume-item"><h3>Selected projects</h3><p>Zero-Waste Knowledge Base · Project Lead<br>Stargazing Assistant</p></div><div class="resume-item"><h3>Tools & methods</h3><p>Python · R · SQL · Tableau · NLP / LLMs · Statistical modeling · Time series</p></div><div class="resume-actions"><button id="print-resume">Print / Save as PDF ↗</button></div><p class="disclosure">A summary for this demo. The final site can link to your application CV.</p>`,`<p class="story-eyebrow">EVA WANG / 王逸文</p><h2 id="story-title">经历概览</h2><p class="story-lead">数据科学与经济学 · 上海纽约大学 · 2023–2027</p><div class="resume-item"><h3>研究</h3><p>ESG 责任文本分析 · 上海纽约大学<br>粗糙波动率与金融时间序列 · 毕业研究<br>手语翻译实验室 · 纽约大学阿布扎比分校<br>消费者决策 · 独立研究</p></div><div class="resume-item"><h3>实习</h3><p>西门子医疗 · 业务运营<br>飞书深诺 · 商业分析<br>上海合成生物学创新中心 · 行业研究<br>方正证券 · 行业研究<br>立信会计师事务所 · 审计</p></div><div class="resume-item"><h3>精选项目</h3><p>零废弃知识库 · 项目组长<br>观星助手</p></div><div class="resume-item"><h3>工具与方法</h3><p>Python · R · SQL · Tableau · NLP / LLM · 统计建模 · 时间序列</p></div><div class="resume-actions"><button id="print-resume">打印 / 另存为 PDF ↗</button></div><p class="disclosure">此处为 demo 的经历摘要，正式版可替换为申请简历。</p>`);
  }
@@ -715,7 +748,8 @@ function renderStory(key){
 }
 function openStory(key){
  const previousStory=currentStory;
- if(key==='projects'||key==='notes'||key==='gre-review')fromProjects=false;
+ const isNoteArticle=Object.hasOwn(noteArticles, key);
+ if(key==='projects'||key==='notes'||isNoteArticle)fromProjects=false;
  else if(previousStory==='projects')fromProjects=true;
  else if(previousStory===null)fromProjects=false;
  if(previousStory!==key)walkthroughIndex=0;
@@ -726,8 +760,8 @@ function openStory(key){
  if(!dialog.open)dialog.showModal();
  dialog.scrollTop=0;
  document.body.style.overflow='hidden';
- if(key==='gre-review')content.querySelector('#story-title').focus({preventScroll:true});
- if(key==='notes'&&previousStory==='gre-review')content.querySelector('[data-open="gre-review"]')?.focus({preventScroll:true});
+ if(isNoteArticle)content.querySelector('#story-title').focus({preventScroll:true});
+ if(key==='notes'&&Object.hasOwn(noteArticles, previousStory))content.querySelector(`[data-open="${previousStory}"]`)?.focus({preventScroll:true});
 }
 document.addEventListener('click',e=>{const target=e.target.closest('[data-open]');if(target)openStory(target.dataset.open);if(e.target.closest('#print-resume'))window.print();});
 document.getElementById('close-dialog').addEventListener('click',()=>dialog.close());
