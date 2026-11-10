@@ -25,9 +25,9 @@
     // Extend beyond the artboard so the water never exposes a straight edge.
     for (let i = 0; i <= 64; i++) {
       const u = i / 64;
-      const x = 570 + 1100 * u;
-      const coast = -38 + 558 * Math.sin(u * Math.PI / 2);
-      const tide = 18 * Math.sin(time * tau / 11 - u * 1.9);
+      const x = -64 + 1728 * u;
+      const coast = 906 + 31 * Math.sin(u * tau - .4) + 10 * Math.sin(u * tau * 2 + .9);
+      const tide = 12 * Math.sin(time * tau / 11 - u * 1.9);
       const swell = 6 * Math.sin(u * 21 - time * .85 + phase);
       const detail = 2.4 * Math.sin(u * 53 + time * .65 + phase);
       const y = coast + tide + swell + detail - offset;
@@ -40,13 +40,13 @@
     return `M${contourPoints(time, offset, phase).map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' L')}`;
   }
 
-  const waterArea = line => `${line} L1670,-100 L570,-100 Z`;
+  const waterArea = line => `${line} L1664,-100 L-64,-100 Z`;
   function draw(time) {
     const shore = contour(time);
     sea.setAttribute('d', waterArea(shore));
     if (ocean) {
       const edge = contourPoints(time).map(([x, y]) => `${(x / 16).toFixed(3)}% ${(y / 10.5).toFixed(3)}%`);
-      ocean.style.clipPath = `polygon(${edge.join(',')},104.375% -9.524%,35.625% -9.524%)`;
+      ocean.style.clipPath = `polygon(${edge.join(',')},104% -9.524%,-4% -9.524%)`;
     }
     shallows.setAttribute('d', waterArea(shore));
     // The wet edge lags behind the advancing water, then fades as it recedes.
@@ -60,9 +60,9 @@
     lace.setAttribute('stroke-dashoffset', (-time * 7).toFixed(1));
     ripples.forEach((ripple, i) => {
       const progress = ((time / 13 + i / ripples.length) % 1 + 1) % 1;
-      const distance = 18 + (1 - progress) * 260;
+      const distance = 18 + (1 - progress) * 230;
       ripple.setAttribute('d', contour(time, distance, i * .7));
-      ripple.setAttribute('opacity', (.32 * Math.sin(progress * Math.PI)).toFixed(3));
+      ripple.setAttribute('opacity', (.19 * Math.sin(progress * Math.PI)).toFixed(3));
     });
   }
 
@@ -127,11 +127,11 @@
         minWidth: 100,
         scale: Math.max(1, window.devicePixelRatio || 1),
         scaleMobile: Math.max(1.5, window.devicePixelRatio || 1),
-        color: 0x4a8e93,
-        shininess: 24,
-        waveHeight: 9,
+        color: 0x326b73,
+        shininess: 22,
+        waveHeight: 8,
         waveSpeed: 0.38,
-        zoom: 0.95
+        zoom: 0.90
       });
       if (!effect?.renderer || !effect?.plane) {
         destroyOcean();

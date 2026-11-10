@@ -126,3 +126,242 @@ footer{font-size:13px;color:#6f6655}
   .intro{margin-top:94px}
   .sea-note{top:102px}
 }
+
+/* Homepage study: a full-width ocean above a separate band of beach. */
+.shore {
+  background: linear-gradient(#f4ebdb 48%, #eee2ce);
+}
+
+.ocean-hero {
+  --water-text: #fff8e9;
+  --water-muted: #e4f1eb;
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(490px, 61svh, 580px);
+  padding-bottom: 106px;
+  color: var(--water-text);
+}
+
+.ocean-hero .landscape {
+  background: #f4ebdb;
+}
+
+.ocean-hero .landscape > .landscape-art {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.ocean-hero #vanta-ocean {
+  opacity: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 87%, 75% 85%, 50% 87%, 25% 89%, 0 85%);
+}
+
+.ocean-hero .vanta-ready #vanta-ocean {
+  opacity: 1;
+}
+
+.ocean-hero #vanta-ocean::after {
+  background: linear-gradient(180deg, #092c3a96 0%, #0c394694 38%, #12495365 65%, #7db2a441 84%, #c5dbb440 100%);
+}
+
+.ocean-hero .grain {
+  opacity: .19;
+  mask-image: linear-gradient(#000 83%, transparent 99%);
+}
+
+.ocean-hero .site-header {
+  height: 86px;
+}
+
+.ocean-hero .site-header nav,
+.ocean-hero .wordmark {
+  color: var(--water-text);
+}
+
+.ocean-hero .wordmark-star,
+.ocean-hero .tiny-star {
+  color: #f0cda5;
+}
+
+.ocean-hero .site-header nav .language {
+  border-color: #edfff55c;
+}
+
+.ocean-hero .intro {
+  width: min(90%, 720px);
+  margin: 42px auto 0;
+  text-align: center;
+}
+
+.ocean-hero .eyebrow {
+  justify-content: center;
+  margin-bottom: 22px;
+  color: #ecf4e9;
+  letter-spacing: .16em;
+}
+
+.ocean-hero #intro-heading {
+  margin-bottom: 16px;
+  font-size: clamp(60px, 6vw, 92px);
+  line-height: .98;
+  letter-spacing: -.037em;
+  text-wrap: balance;
+  text-shadow: 0 2px 24px #0c36404d;
+}
+
+.ocean-hero #intro-heading:lang(zh) {
+  font-size: clamp(57px, 5.65vw, 86px);
+  line-height: 1.15;
+}
+
+.ocean-hero .intro-copy {
+  margin: 0 auto 14px;
+  color: var(--water-muted);
+}
+
+.ocean-hero .intro-meta {
+  margin: 0;
+  color: var(--water-muted);
+}
+
+.ocean-hero .sea-note {
+  right: 5.7%;
+  top: 153px;
+  gap: 3px;
+  align-items: flex-end;
+  color: #f3f1de;
+  text-align: right;
+  transform: none;
+}
+
+.ocean-hero .weather-reading {
+  text-align: inherit;
+}
+
+.ocean-hero .weather-reading small {
+  margin-top: 5px;
+}
+
+.ocean-hero .sea-note svg {
+  width: 61px;
+  height: 26px;
+}
+
+.beach {
+  position: relative;
+}
+
+.beach-guide {
+  display: flex;
+  justify-content: center;
+  padding: 7px 20px 0;
+}
+
+.beach .explore-hint {
+  justify-content: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 0;
+  color: #6c5b44;
+}
+
+.beach .explore-hint svg {
+  transform: none;
+}
+
+.beach .explore-hint:hover span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.beach .shell-field {
+  max-width: 1360px;
+  margin: 16px auto 0;
+  scroll-margin-top: 28px;
+}
+
+@media (max-width: 1040px) {
+  .ocean-hero .sea-note {
+    top: 93px;
+  }
+
+  .ocean-hero .sea-note > :not(.weather-reading) {
+    display: none;
+  }
+
+  .ocean-hero .intro {
+    margin-top: 77px;
+  }
+}
+
+@media (max-width: 700px) {
+  .ocean-hero {
+    min-height: 0;
+    padding-bottom: 91px;
+  }
+
+  .ocean-hero .site-header {
+    height: 78px;
+  }
+
+  .ocean-hero .sea-note {
+    top: 88px;
+    right: 6%;
+  }
+
+  .ocean-hero .intro {
+    width: 88%;
+    margin-top: 74px;
+  }
+
+  .ocean-hero .eyebrow {
+    gap: 7px;
+    margin-bottom: 19px;
+    font-size: 11px;
+    letter-spacing: .11em;
+  }
+
+  .ocean-hero #intro-heading {
+    font-size: clamp(38px, 11.6vw, 64px);
+    line-height: 1;
+  }
+
+  .ocean-hero #intro-heading:lang(zh) {
+    font-size: clamp(36px, 10.6vw, 62px);
+    line-height: 1.15;
+  }
+
+  .ocean-hero .intro-copy {
+    line-height: 1.62;
+  }
+
+  .beach-guide {
+    padding-top: 0;
+  }
+
+  .beach .shell-field {
+    margin: 12px 4% 34px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ocean-hero .site-header {
+    height: 96px;
+  }
+
+  .ocean-hero .sea-note {
+    top: 105px;
+  }
+
+  .ocean-hero .intro {
+    margin-top: 67px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

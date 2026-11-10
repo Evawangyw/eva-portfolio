@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#eee7d8">
+  <meta name="theme-color" content="#15454c">
   <meta name="description" content="Eva Wang’s personal shoreline: exploring data, building thoughtful tools, and following questions across research, work, and life.">
   <title>Eva Wang — A Shore of Possibilities</title>
-  <link rel="stylesheet" href="style.css?v=readability-1">
+  <link rel="stylesheet" href="style.css?v=full-ocean-1">
   <script src="zero-waste.js?v=gallery-2" defer></script>
   <script src="stargazing.js" defer></script>
   <script src="app.js?v=contact-1" defer></script>
   <script src="assets/vendor/three.r134.min.js" defer></script>
   <script src="assets/vendor/vanta.waves.0.5.24.min.js" defer></script>
-  <script src="waves.js?v=20261106" defer></script>
+  <script src="waves.js?v=full-ocean-1" defer></script>
   <script src="weather.js" defer></script>
 </head>
 <body>
@@ -21,68 +21,78 @@
     <filter id="shell-shadow" x="-50%" y="-50%" width="200%" height="220%"><feDropShadow dx="3" dy="9" stdDeviation="5" flood-color="#806e52" flood-opacity=".19"/></filter>
   </defs></svg>
   <main class="shore">
-    <div class="landscape" aria-hidden="true">
-      <svg class="landscape-art" viewBox="0 0 1600 1050" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="sand" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f5f0e5"/><stop offset="1" stop-color="#e9deca"/></linearGradient>
-          <linearGradient id="sea" x1=".9" y1="0" x2=".25" y2="1"><stop stop-color="#3e7d86"/><stop offset=".5" stop-color="#83b8b9"/><stop offset="1" stop-color="#d2e7de"/></linearGradient>
-          <linearGradient id="shallows" x1="1" y1="0" x2="0" y2="1"><stop stop-color="#79b8b1" stop-opacity="0"/><stop offset="1" stop-color="#e6f1e5" stop-opacity=".75"/></linearGradient>
-          <filter id="water-soft"><feGaussianBlur stdDeviation="3"/></filter>
-        </defs>
-        <rect width="1600" height="1050" fill="url(#sand)"/>
-        <path id="wet-sand" d="M600 0H1600V540C1433 541 1328 467 1169 421S958 337 845 235 703 96 600 0Z" fill="#b6aa96" opacity=".25"/>
-        <g class="ocean-water">
-          <path id="sea-body" d="M625 0H1600V512C1456 513 1326 446 1179 399S975 316 863 218 722 82 625 0Z" fill="url(#sea)"/>
-        </g>
-        <g fill="#9b8668" opacity=".18"><circle cx="440" cy="697" r="1.5"/><circle cx="455" cy="705" r="1"/><circle cx="437" cy="713" r="1"/><circle cx="1030" cy="864" r="1.2"/><circle cx="1044" cy="858" r="1.7"/><circle cx="1052" cy="870" r="1"/><circle cx="260" cy="917" r="1.2"/><circle cx="275" cy="923" r="1.9"/><circle cx="281" cy="913" r="1"/><circle cx="1211" cy="603" r="1.4"/><circle cx="1206" cy="616" r="1"/></g>
-      </svg>
-      <div id="vanta-ocean" class="landscape-art"></div>
-      <svg class="landscape-art ocean-overlay" viewBox="0 0 1600 1050" preserveAspectRatio="none">
-        <g class="ocean-details">
-          <path id="sea-shallows" d="M625 0H1600V512C1456 513 1326 446 1179 399S975 316 863 218 722 82 625 0Z" fill="url(#shallows)"/>
-          <g id="sea-ripples" fill="none" stroke="#edf7ff" stroke-linecap="round">
-            <path class="sea-ripple" stroke-width="1.5"/>
-            <path class="sea-ripple" stroke-width="2.2"/>
-            <path class="sea-ripple" stroke-width="1.6"/>
-            <path class="sea-ripple" stroke-width="1.2"/>
+    <div class="ocean-hero">
+      <div class="landscape" aria-hidden="true">
+        <svg class="landscape-art" viewBox="0 0 1600 1050" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1"><stop offset=".78" stop-color="#dccfb7"/><stop offset="1" stop-color="#f4ebdb"/></linearGradient>
+            <linearGradient id="sea" x1=".32" y1="0" x2=".55" y2="1"><stop stop-color="#153f48"/><stop offset=".47" stop-color="#20565d"/><stop offset=".75" stop-color="#327278"/><stop offset=".92" stop-color="#77a8a1"/></linearGradient>
+            <linearGradient id="shallows" x1="0" y1="0" x2="0" y2="1"><stop offset=".72" stop-color="#85c4b3" stop-opacity="0"/><stop offset=".94" stop-color="#b6d8c4" stop-opacity=".46"/><stop offset="1" stop-color="#e7edce" stop-opacity=".7"/></linearGradient>
+            <filter id="water-soft"><feGaussianBlur stdDeviation="3"/></filter>
+          </defs>
+          <rect width="1600" height="1050" fill="url(#sand)"/>
+          <path id="wet-sand" d="M0 0H1600V933C1330 903 1100 891 800 930S265 938 0 908Z" fill="#b6aa96" opacity=".25"/>
+          <g class="ocean-water">
+            <path id="sea-body" d="M0 0H1600V916C1330 886 1100 874 800 913S265 921 0 891Z" fill="url(#sea)"/>
           </g>
-          <path id="shore-foam-soft" stroke="#fcfdff" stroke-width="13" fill="none" opacity=".48" filter="url(#water-soft)"/>
-          <path id="shore-foam" stroke="#f5fbff" stroke-width="2.7" fill="none" opacity=".83"/>
-          <path id="shore-foam-lace" stroke="#ffffff" stroke-width="1.4" stroke-dasharray="3 5 12 7 2 9" stroke-linecap="round" fill="none" opacity=".5"/>
-        </g>
-      </svg>
-      <div class="grain"></div>
+          <g fill="#9b8668" opacity=".18"><circle cx="440" cy="697" r="1.5"/><circle cx="455" cy="705" r="1"/><circle cx="437" cy="713" r="1"/><circle cx="1030" cy="864" r="1.2"/><circle cx="1044" cy="858" r="1.7"/><circle cx="1052" cy="870" r="1"/><circle cx="260" cy="917" r="1.2"/><circle cx="275" cy="923" r="1.9"/><circle cx="281" cy="913" r="1"/><circle cx="1211" cy="603" r="1.4"/><circle cx="1206" cy="616" r="1"/></g>
+        </svg>
+        <div id="vanta-ocean" class="landscape-art"></div>
+        <svg class="landscape-art ocean-overlay" viewBox="0 0 1600 1050" preserveAspectRatio="none">
+          <g class="ocean-details">
+            <path id="sea-shallows" d="M0 0H1600V916C1330 886 1100 874 800 913S265 921 0 891Z" fill="url(#shallows)"/>
+            <g id="sea-ripples" fill="none" stroke="#edf7ff" stroke-linecap="round">
+              <path class="sea-ripple" stroke-width="1.5"/>
+              <path class="sea-ripple" stroke-width="2.2"/>
+              <path class="sea-ripple" stroke-width="1.6"/>
+              <path class="sea-ripple" stroke-width="1.2"/>
+            </g>
+            <path id="shore-foam-soft" stroke="#fcfdff" stroke-width="13" fill="none" opacity=".48" filter="url(#water-soft)"/>
+            <path id="shore-foam" stroke="#f5fbff" stroke-width="2.7" fill="none" opacity=".83"/>
+            <path id="shore-foam-lace" stroke="#ffffff" stroke-width="1.4" stroke-dasharray="3 5 12 7 2 9" stroke-linecap="round" fill="none" opacity=".5"/>
+          </g>
+        </svg>
+        <div class="grain"></div>
+      </div>
+
+      <header class="site-header">
+        <a class="wordmark" href="#" aria-label="Eva Wang home">eva wang<span class="wordmark-star">✳</span></a>
+        <nav aria-label="Main navigation">
+          <button data-open="about" data-en="About" data-zh="关于我">About</button>
+          <button data-open="projects" data-en="Projects" data-zh="项目">Projects</button>
+          <button data-open="notes" data-en="Notes" data-zh="笔记">Notes</button>
+          <button data-open="contact" class="contact-nav"><span data-en="Say hello" data-zh="打个招呼">Say hello</span> <span aria-hidden="true">↗</span></button>
+          <button id="language" class="language" aria-label="Switch to Chinese">中文</button>
+        </nav>
+      </header>
+
+      <section class="intro" aria-labelledby="intro-heading">
+        <p class="eyebrow"><span class="tiny-star">✧</span> <span data-en="A LITTLE COLLECTION OF MY WORLD" data-zh="收集沿途的好奇与发现">A LITTLE COLLECTION OF MY WORLD</span></p>
+        <h1 id="intro-heading" data-en="Curiosity brought<br>me to this shore." data-zh="带着好奇，<br>走到这片海边。">Curiosity brought<br>me to this shore.</h1>
+        <p class="intro-copy" data-en="I’m Eva. I explore data, build thoughtful tools,<br> and follow questions wherever they lead." data-zh="我是逸文。我研究数据，也动手创造工具，<br>顺着好奇心，探索问题会把我带向哪里。">I’m Eva. I explore data, build thoughtful tools,<br> and follow questions wherever they lead.</p>
+        <p class="intro-meta" data-en="Data Science & Economics · NYU Shanghai" data-zh="数据科学与经济学 · 上海纽约大学">Data Science & Economics · NYU Shanghai</p>
+      </section>
+
+      <div class="sea-note" role="group" aria-label="Current Shanghai temperature"><span class="weather-reading"><span id="weather-temperature" aria-live="polite">…°C</span> <span data-en="slow down" data-zh="慢下来">slow down</span><small id="weather-city">Shanghai</small></span><svg width="104" height="35" viewBox="0 0 104 35" fill="none" aria-hidden="true"><path d="M4 16Q15 5 26 16T48 16T70 16T92 16M15 27Q26 16 37 27T59 27T81 27" stroke="currentColor" stroke-width="1"/></svg><span data-en="there’s room to wander." data-zh="留一点时间，慢慢探索。">there’s room to wander.</span></div>
+
     </div>
 
-    <header class="site-header">
-      <a class="wordmark" href="#" aria-label="Eva Wang home">eva wang<span class="wordmark-star">✳</span></a>
-      <nav aria-label="Main navigation">
-        <button data-open="about" data-en="About" data-zh="关于我">About</button>
-        <button data-open="projects" data-en="Projects" data-zh="项目">Projects</button>
-        <button data-open="notes" data-en="Notes" data-zh="笔记">Notes</button>
-        <button data-open="contact" class="contact-nav"><span data-en="Say hello" data-zh="打个招呼">Say hello</span> <span aria-hidden="true">↗</span></button>
-        <button id="language" class="language" aria-label="Switch to Chinese">中文</button>
-      </nav>
-    </header>
-
-    <section class="intro" aria-labelledby="intro-heading">
-      <p class="eyebrow"><span class="tiny-star">✧</span> <span data-en="A LITTLE COLLECTION OF MY WORLD" data-zh="收集沿途的好奇与发现">A LITTLE COLLECTION OF MY WORLD</span></p>
-      <h1 id="intro-heading" data-en="Curiosity brought<br>me to this shore." data-zh="带着好奇，<br>走到这片海边。">Curiosity brought<br>me to this shore.</h1>
-      <p class="intro-copy" data-en="I’m Eva. I explore data, build thoughtful tools,<br> and follow questions wherever they lead." data-zh="我是逸文。我研究数据，也动手创造工具，<br>顺着好奇心，探索问题会把我带向哪里。">I’m Eva. I explore data, build thoughtful tools,<br> and follow questions wherever they lead.</p>
-      <p class="intro-meta" data-en="Data Science & Economics · NYU Shanghai" data-zh="数据科学与经济学 · 上海纽约大学">Data Science & Economics · NYU Shanghai</p>
-      <div class="explore-hint"><svg width="48" height="35" viewBox="0 0 48 35" fill="none" aria-hidden="true"><path d="M3 2C6 21 21 30 42 24M34 18l9 6-6 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span data-en="Pick a shell. There’s a story inside." data-zh="捡起一枚贝壳，打开一段故事。">Pick a shell. There’s a story inside.</span></div>
-    </section>
-
-    <div class="sea-note" role="group" aria-label="Current Shanghai temperature"><span class="weather-reading"><span id="weather-temperature" aria-live="polite">…°C</span> <span data-en="slow down" data-zh="慢下来">slow down</span><small id="weather-city">Shanghai</small></span><svg width="104" height="35" viewBox="0 0 104 35" fill="none" aria-hidden="true"><path d="M4 16Q15 5 26 16T48 16T70 16T92 16M15 27Q26 16 37 27T59 27T81 27" stroke="currentColor" stroke-width="1"/></svg><span data-en="there’s room to wander." data-zh="留一点时间，慢慢探索。">there’s room to wander.</span></div>
-
-    <section class="shell-field" aria-label="Explore my experiences">
-      <button class="shell shell-impact" data-open="impact" aria-label="Explore the Zero-Waste Knowledge Base"><span class="shell-art" data-shell="fan" data-color="coral"></span><span class="shell-number">01 / <span data-en="BUILD" data-zh="创造">BUILD</span></span><span class="shell-title" data-en="Building for impact" data-zh="让创造产生影响">Building for impact</span><span class="shell-subtitle" data-en="A zero-waste knowledge portal" data-zh="零废弃知识库">A zero-waste knowledge portal</span><span class="shell-action" aria-hidden="true">↗</span></button>
-      <button class="shell shell-esg" data-open="esg" aria-label="Explore ESG research"><span class="shell-art" data-shell="spiral" data-color="ivory"></span><span class="shell-number">02 / <span data-en="RESEARCH" data-zh="研究">RESEARCH</span></span><span class="shell-title" data-en="Between the lines" data-zh="读懂字里行间">Between the lines</span><span class="shell-subtitle" data-en="Language, promises & ESG" data-zh="语言、承诺与 ESG">Language, promises & ESG</span><span class="shell-action" aria-hidden="true">↗</span></button>
-      <button class="shell shell-volatility" data-open="volatility" aria-label="Explore rough volatility research"><span class="shell-art" data-shell="fan" data-color="blue"></span><span class="shell-number">03 / <span data-en="EXPLORE" data-zh="探索">EXPLORE</span></span><span class="shell-title" data-en="Patterns in uncertainty" data-zh="寻找不确定中的规律">Patterns in uncertainty</span><span class="shell-subtitle" data-en="Rough volatility & time series" data-zh="粗糙波动率与时间序列">Rough volatility & time series</span><span class="shell-action" aria-hidden="true">↗</span></button>
-      <button class="shell shell-stars" data-open="stars" aria-label="Explore Stargazing Assistant"><span class="shell-art" data-shell="star" data-color="peach"></span><span class="shell-number">04 / <span data-en="IMAGINE" data-zh="想象">IMAGINE</span></span><span class="shell-title" data-en="Under the stars" data-zh="在星空之下">Under the stars</span><span class="shell-subtitle" data-en="A data-guided stargazing assistant" data-zh="用数据寻找适合观星的时刻">A data-guided stargazing assistant</span><span class="shell-action" aria-hidden="true">↗</span></button>
-      <button class="shell shell-work" data-open="work" aria-label="Explore work experience"><span class="shell-art" data-shell="conch" data-color="ochre"></span><span class="shell-number">05 / <span data-en="CONNECT" data-zh="连接">CONNECT</span></span><span class="shell-title" data-en="Data in the real world" data-zh="数据走进真实世界">Data in the real world</span><span class="shell-subtitle" data-en="Where analysis meets decisions" data-zh="当分析遇到业务决策">Where analysis meets decisions</span><span class="shell-action" aria-hidden="true">↗</span></button>
-      <button class="shell shell-cities" data-open="about" aria-label="Read about Eva and her study-away experiences"><span class="shell-art" data-shell="dollar" data-color="sage"></span><span class="shell-number">06 / <span data-en="WANDER" data-zh="漫游">WANDER</span></span><span class="shell-title" data-en="Across three cities" data-zh="走过三座城市">Across three cities</span><span class="shell-subtitle" data-en="Shanghai · Abu Dhabi · New York" data-zh="上海 · 阿布扎比 · 纽约">Shanghai · Abu Dhabi · New York</span><span class="shell-action" aria-hidden="true">↗</span></button>
-    </section>
+    <div class="beach">
+      <div class="beach-guide">
+        <a class="explore-hint" href="#shell-field">
+          <svg width="18" height="20" viewBox="0 0 18 20" fill="none" aria-hidden="true"><path d="M9 2v15m-5-5 5 5 5-5" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span data-en="Pick a shell. There’s a story inside." data-zh="捡起一枚贝壳，打开一段故事。">Pick a shell. There’s a story inside.</span>
+        </a>
+      </div>
+      <section class="shell-field" id="shell-field" aria-label="Explore my experiences">
+        <button class="shell shell-impact" data-open="impact" aria-label="Explore the Zero-Waste Knowledge Base"><span class="shell-art" data-shell="fan" data-color="coral"></span><span class="shell-number">01 / <span data-en="BUILD" data-zh="创造">BUILD</span></span><span class="shell-title" data-en="Building for impact" data-zh="让创造产生影响">Building for impact</span><span class="shell-subtitle" data-en="A zero-waste knowledge portal" data-zh="零废弃知识库">A zero-waste knowledge portal</span><span class="shell-action" aria-hidden="true">↗</span></button>
+        <button class="shell shell-esg" data-open="esg" aria-label="Explore ESG research"><span class="shell-art" data-shell="spiral" data-color="ivory"></span><span class="shell-number">02 / <span data-en="RESEARCH" data-zh="研究">RESEARCH</span></span><span class="shell-title" data-en="Between the lines" data-zh="读懂字里行间">Between the lines</span><span class="shell-subtitle" data-en="Language, promises & ESG" data-zh="语言、承诺与 ESG">Language, promises & ESG</span><span class="shell-action" aria-hidden="true">↗</span></button>
+        <button class="shell shell-volatility" data-open="volatility" aria-label="Explore rough volatility research"><span class="shell-art" data-shell="fan" data-color="blue"></span><span class="shell-number">03 / <span data-en="EXPLORE" data-zh="探索">EXPLORE</span></span><span class="shell-title" data-en="Patterns in uncertainty" data-zh="寻找不确定中的规律">Patterns in uncertainty</span><span class="shell-subtitle" data-en="Rough volatility & time series" data-zh="粗糙波动率与时间序列">Rough volatility & time series</span><span class="shell-action" aria-hidden="true">↗</span></button>
+        <button class="shell shell-stars" data-open="stars" aria-label="Explore Stargazing Assistant"><span class="shell-art" data-shell="star" data-color="peach"></span><span class="shell-number">04 / <span data-en="IMAGINE" data-zh="想象">IMAGINE</span></span><span class="shell-title" data-en="Under the stars" data-zh="在星空之下">Under the stars</span><span class="shell-subtitle" data-en="A data-guided stargazing assistant" data-zh="用数据寻找适合观星的时刻">A data-guided stargazing assistant</span><span class="shell-action" aria-hidden="true">↗</span></button>
+        <button class="shell shell-work" data-open="work" aria-label="Explore work experience"><span class="shell-art" data-shell="conch" data-color="ochre"></span><span class="shell-number">05 / <span data-en="CONNECT" data-zh="连接">CONNECT</span></span><span class="shell-title" data-en="Data in the real world" data-zh="数据走进真实世界">Data in the real world</span><span class="shell-subtitle" data-en="Where analysis meets decisions" data-zh="当分析遇到业务决策">Where analysis meets decisions</span><span class="shell-action" aria-hidden="true">↗</span></button>
+        <button class="shell shell-cities" data-open="about" aria-label="Read about Eva and her study-away experiences"><span class="shell-art" data-shell="dollar" data-color="sage"></span><span class="shell-number">06 / <span data-en="WANDER" data-zh="漫游">WANDER</span></span><span class="shell-title" data-en="Across three cities" data-zh="走过三座城市">Across three cities</span><span class="shell-subtitle" data-en="Shanghai · Abu Dhabi · New York" data-zh="上海 · 阿布扎比 · 纽约">Shanghai · Abu Dhabi · New York</span><span class="shell-action" aria-hidden="true">↗</span></button>
+      </section>
+    </div>
 
     <footer><span data-en="Always a work in progress. Just like me." data-zh="慢慢生长，持续探索。">Always a work in progress. Just like me.</span><div><button data-open="resume" data-en="Résumé ↗" data-zh="简历 ↗">Résumé ↗</button><a href="https://github.com/Evawangyw" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="weather-credit" href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer" data-en="Weather: Open-Meteo ↗" data-zh="天气：Open-Meteo ↗">Weather: Open-Meteo ↗</a><span class="footer-mark">EW / 2026</span></div></footer>
   </main>
