@@ -41,15 +41,34 @@ function projectIndex(){
  return `<div class="project-list">${projectDirectory.map((project,i)=>{const p=project[lang];return `<button data-open="${project.key}"><span class="index-number" aria-hidden="true">0${i+1}</span><span class="project-summary"><span class="project-kind">${p.kind}</span><strong>${p.title}</strong><small>${p.summary}</small><span class="project-skills">${p.skills.map(skill=>`<span>${skill}</span>`).join('')}</span></span><span class="project-arrow" aria-hidden="true">↗</span></button>`}).join('')}</div>`;
 }
 
-const greReviewTitle = 'GRE 备考复盘：我的一个月';
+const greReviewTitle = {
+ en: 'One Month of GRE Prep: Lessons Learned',
+ zh: 'GRE 备考复盘：我的一个月'
+};
 function renderNotes(){
- if(lang==='en')return '<p class="story-eyebrow">A SPACE FOR THOUGHT</p><h2 id="story-title">Research & Notes</h2><div class="notes-empty"></div>';
- return `<p class="story-eyebrow">留给思考的空间</p><h2 id="story-title">研究与笔记</h2>
- <div class="project-list"><button data-open="gre-review"><span class="index-number" aria-hidden="true">01</span><span class="project-summary"><span class="project-kind">备考笔记</span><strong>${greReviewTitle}</strong><small>每天只有一两个小时，我是怎么安排刷题、模考和词汇复习的？</small></span><span class="project-arrow" aria-hidden="true">↗</span></button></div>`;
+ return `<p class="story-eyebrow">${choose('A SPACE FOR THOUGHT','留给思考的空间')}</p><h2 id="story-title">${choose('Research &amp; Notes','研究与笔记')}</h2>
+ <div class="project-list"><button data-open="gre-review"><span class="index-number" aria-hidden="true">01</span><span class="project-summary"><span class="project-kind">${choose('Study Notes','备考笔记')}</span><strong>${greReviewTitle[lang]}</strong><small>${choose('How I fit practice questions, mock tests, and vocabulary review into one or two hours a day.','每天只有一两个小时，我是怎么安排刷题、模考和词汇复习的？')}</small></span><span class="project-arrow" aria-hidden="true">↗</span></button></div>`;
 }
 function renderGreReview(){
+ if(lang==='en')return `<button class="projects-back" data-open="notes">← Back to Notes</button>
+ <p class="story-eyebrow">June 18 · Study Notes</p><h2 id="story-title" tabindex="-1">${greReviewTitle.en}</h2>
+ <p class="story-lead">I just finished taking the GRE on June 18, and while everything is still fresh in my mind, I thought I'd share a little reflection on my month of preparation.</p>
+ <p>First, a bit about my background. I'm currently a junior at a Sino-foreign joint university, and I scored a perfect score on the new TOEFL this May without any preparation. So I would say I have a relatively solid foundation in English.</p>
+ <p>Starting in February, I had been studying vocabulary on and off, working through ZW's 3,000-word list and synonym groups twice using the vocabulary app <em>Bu Bei Dan Ci</em>. I also practiced a few questions here and there. However, this approach didn't seem particularly effective. I kept forgetting words almost as quickly as I learned them.</p>
+ <p>On May 19, I finally decided to get serious and purchased a one-month BBGRE premium membership. Even then, I wouldn't describe my preparation as particularly intensive. Between my internship and my own tendency to procrastinate, I usually had only one or two hours a day to dedicate to the GRE.</p>
+ <p>With that limited time, I first worked through the curated question banks for Text Completion and Reading Comprehension. After finishing those, I started taking one practice test each day, while using BBGRE's vocabulary tools to reinforce words commonly tested in Sentence Equivalence questions. For the Quantitative section, I completed the questions in the highly curated question bank and spent extra time reviewing topics I wasn't completely comfortable with, particularly permutations and combinations.</p>
+ <p>One of my biggest takeaways from this month of preparation is that <strong>the GRE involves a surprising amount of luck.</strong></p>
+ <p>Because of how questions are selected, there's a real possibility of encountering questions you've already practiced. In fact, during my exam, I felt that I had seen roughly one-third of the questions before.</p>
+ <p>On the other hand, once you reach the harder section, you may also encounter questions that leave you second-guessing yourself, especially longer reading passages and logical reasoning questions where none of the answers seems entirely convincing.</p>
+ <p>For particularly tricky Reading Comprehension questions, my strategy is to begin by understanding the overall argument of the passage, especially its subject and central claim. Then, I identify exactly what the question is asking about before returning to the passage to locate relevant evidence and make inferences.</p>
+ <p>For logical reasoning questions, I highly recommend drawing out the logical structure of the argument. Identifying the premises, conclusions, and connections between them makes the reasoning much clearer. I also found the logical reasoning videos from Qingshan Academy particularly helpful.</p>
+ <p>Finally, I want to share a few words of encouragement for anyone currently preparing for the GRE.</p>
+ <p>When I first started practicing, I found the exam quite intimidating. With so little time available each day, I kept telling myself that I could always retake it if things didn't work out.</p>
+ <p>But after about fifteen days of consistent practice, I began to realize that the vocabulary and reasoning patterns tested on the GRE are actually quite repetitive. The night before my exam, I was still encountering plenty of words I had never seen before. Yet that didn't stop me from achieving a score I was happy with.</p>
+ <p>Looking back, I think <strong>developing a feel for the questions matters more than simply maximizing the number of words memorized or problems completed.</strong> Understanding how the exam works, recognizing recurring patterns, and learning to trust your reasoning can make a real difference.</p>
+ <p>And perhaps most importantly, get enough sleep the night before, walk into the exam with confidence, and trust the work you've already put in.</p>`;
  return `<button class="projects-back" data-open="notes">← 返回笔记</button>
- <p class="story-eyebrow">备考笔记</p><h2 id="story-title" tabindex="-1">${greReviewTitle}</h2>
+ <p class="story-eyebrow">备考笔记</p><h2 id="story-title" tabindex="-1">${greReviewTitle.zh}</h2>
  <p class="story-lead">6 月 18 日刚考完 GRE，趁记忆还比较新鲜，来总结一下这一个月备考吧。</p>
  <p>先说一下我的基本情况：中外合办大三在读，今年五月份裸考新托福满分，所以自认为英语基础还是相对不错的。从 2 月份我就开始断断续续背 zw 的 3000 词和等价词，在「不背单词」上过了两遍，同时也零星刷了一些题目。但是感觉这样的效率并不高，单词也是前背后忘。</p>
  <p>从 5 月 19 日开始，终于下定决心充了 BBGRE 的大会员一个月，开始认真刷题。说是认真也远远不算高强度，因为实习的原因（加上自己比较懒），大部分时间每天都只有 1–2 小时留给 GRE。在这有限的时间里，我先是刷完了精选题库的填空和阅读题，然后开始每天一套模考，同时用 BBGRE 的背单词功能巩固六选二的单词。数学部分由于时间有限，我只是刷完了超级精选题库的所有题目，并重点过了一下不太熟练的题型，比如排列组合题。</p>
@@ -83,7 +102,6 @@ function renderStory(key){
  content.innerHTML=`<article class="story-inner">${fromProjects&&key!=='projects'?`<button class="projects-back" data-open="projects">${choose('← All projects','← 返回项目目录')}</button>`:''}${html}</article>`;
 }
 function openStory(key){
- if(key==='gre-review'&&lang!=='zh')key='notes';
  const previousStory=currentStory;
  if(key==='projects'||key==='notes'||key==='gre-review')fromProjects=false;
  else if(previousStory==='projects')fromProjects=true;
@@ -103,7 +121,7 @@ document.addEventListener('click',e=>{const target=e.target.closest('[data-open]
 document.getElementById('close-dialog').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog){const b=dialog.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)dialog.close();}});
 dialog.addEventListener('close',()=>{document.body.style.overflow='';currentStory=null;fromProjects=false;});
-function toggleLanguage(){lang=lang==='en'?'zh':'en';document.documentElement.lang=lang==='en'?'en':'zh-CN';document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]);document.getElementById('language').textContent=lang==='en'?'中文':'EN';document.getElementById('language').ariaLabel=lang==='en'?'Switch to Chinese':'Switch to English';document.getElementById('close-dialog').innerHTML=`${choose('Close','关闭')} <span>×</span>`;document.getElementById('story-language').textContent=choose('中文','EN');document.getElementById('story-language').ariaLabel=choose('Switch to Chinese','切换到英文');document.getElementById('close-dialog').ariaLabel=choose('Close story','关闭案例');if(currentStory==='gre-review'&&lang==='en')openStory('notes');else if(currentStory)renderStory(currentStory);}
+function toggleLanguage(){lang=lang==='en'?'zh':'en';document.documentElement.lang=lang==='en'?'en':'zh-CN';document.querySelectorAll('[data-en]').forEach(el=>el.innerHTML=el.dataset[lang]);document.getElementById('language').textContent=lang==='en'?'中文':'EN';document.getElementById('language').ariaLabel=lang==='en'?'Switch to Chinese':'Switch to English';document.getElementById('close-dialog').innerHTML=`${choose('Close','关闭')} <span>×</span>`;document.getElementById('story-language').textContent=choose('中文','EN');document.getElementById('story-language').ariaLabel=choose('Switch to Chinese','切换到英文');document.getElementById('close-dialog').ariaLabel=choose('Close story','关闭案例');if(currentStory)renderStory(currentStory);}
 document.getElementById('language').addEventListener('click',toggleLanguage);
 document.getElementById('story-language').addEventListener('click',toggleLanguage);
 initWalkthrough();

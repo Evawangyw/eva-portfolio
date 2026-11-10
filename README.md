@@ -1,6 +1,6 @@
 # Eva Wang — Shoreline portfolio demo
 
-A responsive, buildless personal portfolio. The shoreline and six collectible shells are drawn in SVG, with a softly lit Vanta Waves surface clipped to the sea. English and Chinese interfaces, accessible story dialogs, a project index, résumé summary, and reduced-motion support are included. Research & Notes includes a Chinese-language GRE preparation review.
+A responsive, buildless personal portfolio. The shoreline and six collectible shells are drawn in SVG, with a softly lit Vanta Waves surface clipped to the sea. English and Chinese interfaces, accessible story dialogs, a project index, résumé summary, and reduced-motion support are included. Research & Notes includes a bilingual GRE preparation review.
 
 ## Publish on GitHub Pages
 
