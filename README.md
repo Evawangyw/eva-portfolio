@@ -28,7 +28,7 @@ The Zero-Waste case study includes the problem, individual contribution, product
 
 Run `python3 scripts/build-standalone.py` to regenerate `eva-shoreline-demo.html`, a standalone copy with the walkthrough images and title fonts embedded.
 
-The contact dialog currently links to Eva’s GitHub. The résumé is a demo summary with a print/save-as-PDF action. Add a preferred email address and final CV file when preparing the final site.
+The contact dialog links to Eva’s NYU email and GitHub. The résumé is a demo summary with a print/save-as-PDF action.
 
 ## Ocean background
 

@@ -79,6 +79,62 @@ dialog.case-dialog{width:min(960px,calc(100% - 36px))}.case-dialog .story-inner{
 #intro-heading:lang(zh){letter-spacing:-.025em}
 @media(max-width:700px){#intro-heading{font-size:clamp(35px,11vw,49px)}#intro-heading:lang(zh){font-size:clamp(35px,12.25vw,49px)}}
 
+/* Keep supporting text readable in both languages, including on narrow screens. */
+body{font-size:16px}
+.site-header nav,.site-header nav .language{font-size:14px}
+.site-header nav button{white-space:nowrap}
+.intro-copy{font-size:17px;line-height:1.75}
+.intro-meta,.eyebrow{font-size:13px}
+.intro-meta{color:#626856}
+.explore-hint{font-size:17px}
+.sea-note{font-size:16px}
+.sea-note>span:first-child,.weather-reading small{font-size:12px;letter-spacing:.08em}
+.sea-note .weather-reading{color:#f3f3e7}
+.shell-number{font-size:11px;color:#746953}
+.shell-title{font-size:23px}
+.shell-subtitle{font-size:14px;line-height:1.5;color:#626856}
+footer{font-size:13px;color:#6f6655}
+.footer-mark,.weather-credit{font-size:11px}
+.story-inner p,.story-inner ul,.walkthrough-feature figcaption p{font-size:16px}
+.story-inner .story-lead{font-size:22px;line-height:1.55}
+.story-meta,.story-inner .disclosure,.case-stats dd{font-size:13px}
+.story-eyebrow,.dialog-brand,.project-list .index-number,.project-list .project-kind,.demo-visual .visual-caption,.case-kicker{font-size:12px}
+.story-inner h3,.resume-item h3,.case-section h4{font-size:15px}
+.case-section>h3{font-size:25px}
+.case-section>h3>span,.pipeline-step{font-size:11px}
+.walkthrough-feature h4{font-size:24px}
+.story-link,.story-demo-link,.resume-actions button,.projects-back{font-size:14px}
+#close-dialog,.dialog-actions>button:first-child,.case-nav button,.walkthrough-steps>button,.walkthrough-image>span,.image-toolbar p,.image-actions button{font-size:13px}
+.tags span,.project-skills>span,.walkthrough-steps>button>span,.image-navigation>span{font-size:12px}
+.project-list strong{font-size:25px}
+.project-list small{font-size:15px}
+
+@media(max-width:700px){
+  .site-header nav,.site-header nav .language{font-size:13px}
+  .site-header nav{gap:12px}
+  .site-header nav .language{padding-left:10px}
+  .eyebrow,.intro-meta{font-size:12px}
+  .intro-copy{font-size:16px}
+  .intro-copy br{display:none}
+  .sea-note{top:96px;font-size:12px}
+  .sea-note>span:first-child,.weather-reading small{font-size:11px}
+  .sea-note svg{height:26px}
+  .shell-title{font-size:20px}
+  .shell-subtitle{font-size:13px}
+  .story-inner .story-lead{font-size:19px}
+  .case-section>h3,.walkthrough-feature h4{font-size:23px}
+  .project-list strong{font-size:23px}
+  .image-actions{flex-wrap:wrap}
+}
+
+@media(max-width:400px){
+  .site-header{height:96px;flex-wrap:wrap;align-content:center;row-gap:4px}
+  .site-header nav{width:100%;justify-content:space-between;gap:8px}
+  .site-header .contact-nav{gap:5px}
+  .intro{margin-top:94px}
+  .sea-note{top:102px}
+}
+
 /*
 Copyright 2020 The Newsreader Project Authors (http://github.com/productiontype/Newsreader)
 
@@ -334,7 +390,7 @@ OTHER DEALINGS IN THE FONT SOFTWARE.
     <section class="intro" aria-labelledby="intro-heading">
       <p class="eyebrow"><span class="tiny-star">✧</span> <span data-en="A LITTLE COLLECTION OF MY WORLD" data-zh="收集沿途的好奇与发现">A LITTLE COLLECTION OF MY WORLD</span></p>
       <h1 id="intro-heading" data-en="Curiosity brought<br>me to this shore." data-zh="带着好奇，<br>走到这片海边。">Curiosity brought<br>me to this shore.</h1>
-      <p class="intro-copy" data-en="I’m Eva. I explore data, build thoughtful tools,<br>and follow questions wherever they lead." data-zh="我是逸文。我研究数据，也动手创造工具，<br>顺着好奇心，探索问题会把我带向哪里。">I’m Eva. I explore data, build thoughtful tools,<br>and follow questions wherever they lead.</p>
+      <p class="intro-copy" data-en="I’m Eva. I explore data, build thoughtful tools,<br> and follow questions wherever they lead." data-zh="我是逸文。我研究数据，也动手创造工具，<br>顺着好奇心，探索问题会把我带向哪里。">I’m Eva. I explore data, build thoughtful tools,<br> and follow questions wherever they lead.</p>
       <p class="intro-meta" data-en="Data Science & Economics · NYU Shanghai" data-zh="数据科学与经济学 · 上海纽约大学">Data Science & Economics · NYU Shanghai</p>
       <div class="explore-hint"><svg width="48" height="35" viewBox="0 0 48 35" fill="none" aria-hidden="true"><path d="M3 2C6 21 21 30 42 24M34 18l9 6-6 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg><span data-en="Pick a shell. There’s a story inside." data-zh="捡起一枚贝壳，打开一段故事。">Pick a shell. There’s a story inside.</span></div>
     </section>
@@ -741,7 +797,10 @@ function renderStory(key){
  }else if(key==='projects'){html=`<p class="story-eyebrow">${choose('COLLECTED ALONG THE WAY','沿途收集')}</p><h2 id="story-title">${choose('Projects & research','项目与研究')}</h2><p class="story-lead">${choose('A quick guide to what I build and study. Choose a project to explore its story.','快速了解我做过的项目与正在研究的问题，选择一项即可查看完整介绍。')}</p>${projectIndex()}`;
  }else if(key==='notes'){html=renderNotes();
  }else if(Object.hasOwn(noteArticles, key)){html=noteArticles[key]();
- }else if(key==='contact'){html=choose(`<p class="story-eyebrow">LET’S CONNECT</p><h2 id="story-title">A conversation<br>could start here.</h2><p class="story-lead">I’d love to exchange ideas about data science, NLP, research, and building useful products.</p><a class="story-link" href="https://github.com/Evawangyw" target="_blank" rel="noopener noreferrer">Find me on GitHub ↗</a><p class="disclosure">This demo currently links to GitHub. An email address and other contact links can be added to the final site.</p>`,`<p class="story-eyebrow">打个招呼</p><h2 id="story-title">一段对话，<br>可以从这里开始。</h2><p class="story-lead">欢迎交流数据科学、自然语言处理、研究，或是一起创造有用的产品。</p><a class="story-link" href="https://github.com/Evawangyw" target="_blank" rel="noopener noreferrer">在 GitHub 找到我 ↗</a><p class="disclosure">这个 demo 暂时提供 GitHub 入口，正式版可以加入邮箱和其他联系方式。</p>`);
+ }else if(key==='contact'){
+ const email='yw7979@nyu.edu';
+ html=choose(`<p class="story-eyebrow">LET’S CONNECT</p><h2 id="story-title">A conversation<br>could start here.</h2><p class="story-lead">I’d love to exchange ideas about data science, NLP, research, and building useful products.</p>`,`<p class="story-eyebrow">打个招呼</p><h2 id="story-title">一段对话，<br>可以从这里开始。</h2><p class="story-lead">欢迎交流数据科学、自然语言处理、研究，或是一起创造有用的产品。</p>`);
+ html+=`<div class="project-actions"><a class="story-demo-link" href="mailto:${email}">${email}</a><a class="story-link" href="https://github.com/Evawangyw" target="_blank" rel="noopener noreferrer">${choose('Find me on GitHub','在 GitHub 找到我')} ↗</a></div>`;
  }else if(key==='resume'){html=choose(`<p class="story-eyebrow">EVA WANG / YIWEN</p><h2 id="story-title">Résumé at a glance</h2><p class="story-lead">Data Science & Economics · NYU Shanghai · 2023–2027</p><div class="resume-item"><h3>Research</h3><p>ESG Accountability Analytics · NYU Shanghai<br>Rough Volatility & Financial Time Series · Capstone<br>Sign Language Translation Lab · NYU Abu Dhabi<br>Consumer Decision-Making · Independent Research</p></div><div class="resume-item"><h3>Experience</h3><p>Siemens Healthineers · Business Operations<br>MeetSocial Group · Business Analytics<br>Shanghai SynBio Innovation Center · Industry Research<br>Founder Securities · Industry Research<br>BDO China · Audit</p></div><div class="resume-item"><h3>Selected projects</h3><p>Zero-Waste Knowledge Base · Project Lead<br>Stargazing Assistant</p></div><div class="resume-item"><h3>Tools & methods</h3><p>Python · R · SQL · Tableau · NLP / LLMs · Statistical modeling · Time series</p></div><div class="resume-actions"><button id="print-resume">Print / Save as PDF ↗</button></div><p class="disclosure">A summary for this demo. The final site can link to your application CV.</p>`,`<p class="story-eyebrow">EVA WANG / 王逸文</p><h2 id="story-title">经历概览</h2><p class="story-lead">数据科学与经济学 · 上海纽约大学 · 2023–2027</p><div class="resume-item"><h3>研究</h3><p>ESG 责任文本分析 · 上海纽约大学<br>粗糙波动率与金融时间序列 · 毕业研究<br>手语翻译实验室 · 纽约大学阿布扎比分校<br>消费者决策 · 独立研究</p></div><div class="resume-item"><h3>实习</h3><p>西门子医疗 · 业务运营<br>飞书深诺 · 商业分析<br>上海合成生物学创新中心 · 行业研究<br>方正证券 · 行业研究<br>立信会计师事务所 · 审计</p></div><div class="resume-item"><h3>精选项目</h3><p>零废弃知识库 · 项目组长<br>观星助手</p></div><div class="resume-item"><h3>工具与方法</h3><p>Python · R · SQL · Tableau · NLP / LLM · 统计建模 · 时间序列</p></div><div class="resume-actions"><button id="print-resume">打印 / 另存为 PDF ↗</button></div><p class="disclosure">此处为 demo 的经历摘要，正式版可替换为申请简历。</p>`);
  }
  content.innerHTML=`<article class="story-inner">${fromProjects&&key!=='projects'?`<button class="projects-back" data-open="projects">${choose('← All projects','← 返回项目目录')}</button>`:''}${html}</article>`;
